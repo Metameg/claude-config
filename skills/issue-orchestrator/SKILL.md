@@ -78,7 +78,11 @@ Invoke `superpowers:executing-plans`. Spawn a `coder` subagent (plus any special
 
 ### Phase 4 — Strengthen tests (depends on Phases 1 + 3)
 
-Spawn a `tester` subagent to finish any stubbed tests from Phase 1 and add coverage for edge cases and error paths. All tests must pass before proceeding. Run tests via `safe-test` (raw test runner calls are denied by the command gate). If tests fail, use `superpowers:systematic-debugging` and loop back to a coder subagent.
+Spawn two subagents in parallel:
+- **`tester`** — finish any stubbed tests from Phase 1 and add coverage for edge cases and error paths
+- **`backend-contract-tester`** — audit data-contract gaps: fields that fetch functions don't return but downstream code reads, and test fixtures that hand-craft data instead of flowing through the real API layer
+
+Both must complete green before proceeding. Run tests via `safe-test` (raw test runner calls are denied by the command gate). If tests fail, use `superpowers:systematic-debugging` and loop back to a coder subagent.
 
 ### Phase 5 — Review, audit, refine (depends on Phase 4 green)
 
