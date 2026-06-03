@@ -1,0 +1,24 @@
+{
+  "name": "claude-config-metameg",
+  "version": "1.0.0",
+  "description": "Interactive installer for metameg's Claude Code configuration — hooks, skills, agents, and settings",
+  "bin": {
+    "claude-config-metameg": "./bin/install.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "files": [
+    "bin/",
+    "hooks/",
+    "skills/",
+    "agents/",
+    "commands/",
+    "helpers/",
+    "scripts/",
+    "CLAUDE.md",
+    "settings.json"
+  ],
+  "keywords": ["claude-code", "claude", "config", "hooks", "mcp"],
+  "license": "MIT"
+}

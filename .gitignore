@@ -1,0 +1,64 @@
+# Secrets
+.env
+secrets/
+
+# Runtime / session data
+history.jsonl
+daemon.log
+daemon.lock
+daemon.status.json
+daemon-auth-cooldown
+daemon-auth-status.json
+mcp-needs-auth-cache.json
+gh-pr-status-cache.json
+.last-cleanup
+.last-update-result.json
+.credentials.json
+session-env/
+sessions/
+jobs/
+projects/
+file-history/
+paste-cache/
+shell-snapshots/
+telemetry/
+logs/
+cache/
+downloads/
+worktrees/
+daemon/
+
+# Plugin runtime artifacts
+plugins/cache/
+plugins/data/
+plugins/installed_plugins.json
+plugins/known_marketplaces.json
+plugins/plugin-catalog-cache.json
+plugins/marketplaces/
+plugins/claude-code-tts/.git/
+plugins/claude-code-tts/bin/tts-server
+plugins/claude-code-tts/bin/tts-relay
+plugins/claude-code-tts/bin/speak-text
+
+# Superpowers managed — not custom config
+.claude/
+
+# Monitoring dashboard (to be deleted — replaced by SignOz/otel hooks)
+hooks/monitoring_dashboard/
+
+# Third-party / externally managed skills
+skills/omarchy
+
+# TTS plugin — managed as its own repo (github.com/Metameg/claude-code-tts)
+plugins/claude-code-tts/
+
+# Backups
+backups/
+
+# Ephemeral runtime data
+tasks/
+plans/
+skills/skill-builder/.claude-flow/
+
+# Machine-local settings overrides
+settings.local.json

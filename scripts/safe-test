@@ -1,0 +1,20 @@
+#!/bin/bash
+# safe-test — run a command with ALL credential-like env vars stripped.
+# Intentional real-credential run: ALLOW_REAL_API_TESTS=1 safe-test <cmd>
+set -euo pipefail
+
+if [ "${ALLOW_REAL_API_TESTS:-0}" = "1" ]; then
+  exec "$@"
+fi
+
+# Single editable source of truth for credential name patterns:
+PATTERNS='API_KEY|APIKEY|_TOKEN|TOKEN|_SECRET|SECRET|_KEY|ACCESS_KEY|PASSWORD|CREDENTIAL|_PAT|AUTH'
+
+unset_args=()
+while IFS='=' read -r name _; do
+  if printf '%s' "$name" | grep -Eq "($PATTERNS)"; then
+    unset_args+=("-u" "$name")
+  fi
+done < <(env)
+
+exec env "${unset_args[@]}" "$@"
