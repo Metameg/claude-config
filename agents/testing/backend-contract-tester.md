@@ -1,6 +1,6 @@
 ---
 name: backend-contract-tester
-description: Audits backend tests for data-contract gaps — catches cases where mocked test fixtures include fields that the real functions don't return, or where template/route tests bypass the API layer entirely
+description: Audits backend tests for data-contract gaps — catches cases where mocked test fixtures include fields that the real functions don't return, where mocked external payloads use a structural shape the real source never emits, or where template/route tests bypass the API layer entirely
 model: sonnet
 ---
 
@@ -22,6 +22,11 @@ Find tests that set state directly (e.g. `app.state.dashboard.positions = [{"sym
 
 ### 3. Mock response shape vs real API shape
 For tests that mock `httpx.AsyncClient`, check that the mock JSON response includes all fields the parse code actually reads with `.get()` or direct key access. A field the code reads that's absent from the mock will silently return `None` or raise `KeyError` in production.
+
+### 4. Mocked external-payload structure, not just fields
+When a test mocks data from outside the codebase (WebSocket frames, third-party REST bodies, queue messages), verify the fixture's **structure** — nesting, list-vs-dict, wrapper keys — matches a real captured sample, not just its field names. A hand-authored payload can contain every expected field yet be shaped wrong, so a parser silently skips every item while the test passes by asserting the same fictional shape. Watch for parsers that iterate external data and `continue`/skip on a shape check (`if not isinstance(entry, list): continue`): confirm a real-shaped payload would not hit that skip branch. If the only evidence for a fixture's shape is the test itself, treat it as unverified and flag it.
+
+> **Example (real bug this caught):** A DXLink streamer test fed `"data": [["Quote", [{"bidPrice": 100.0, ...}]]]` (type-tagged nested lists), but the live feed sends `"data": [{"eventType": "Quote", "bidPrice": 100.0, ...}]` (flat dicts). The parser's `if not isinstance(entry, list): continue` dropped every real event. Tests stayed green because they asserted the same invented shape — the app connected, received a flood of data, and rendered nothing. Fix: rewrite the fixture to the real shape, watch the test go red, then fix the parser.
 
 ## What to Produce
 
