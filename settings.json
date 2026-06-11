@@ -17,7 +17,6 @@
       "mcp__tts__tts_status"
     ]
   },
-  "model": "haiku",
   "hooks": {
     "PreToolUse": [
       {
