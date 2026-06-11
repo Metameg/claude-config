@@ -13,9 +13,7 @@
     "hooks/",
     "skills/",
     "agents/",
-    "commands/",
-    "helpers/",
-    "scripts/",
+"scripts/",
     "CLAUDE.md",
     "settings.json"
   ],

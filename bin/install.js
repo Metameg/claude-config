@@ -23,7 +23,7 @@ const ENV_FILE   = path.join(CLAUDE_DIR, '.env');
 const SETTINGS   = path.join(CLAUDE_DIR, 'settings.json');
 
 // Directories copied recursively (skip if target file already exists — user is prompted)
-const INSTALL_DIRS  = ['hooks', 'skills', 'agents', 'commands', 'helpers', 'scripts'];
+const INSTALL_DIRS  = ['hooks', 'skills', 'agents', 'scripts'];
 const NEVER_INSTALL = new Set(['.env', 'secrets', 'bin', 'node_modules', 'package.json', 'package-lock.json']);
 
 // ── Utilities ────────────────────────────────────────────────────────────────
@@ -169,7 +169,7 @@ async function main() {
   }
 
   // ── 1. Directories ─────────────────────────────────────────────────────────
-  console.log(c.bold('  Step 1/4 — Copy hooks, skills, agents, commands, helpers, scripts'));
+  console.log(c.bold('  Step 1/4 — Copy hooks, skills, agents, scripts'));
   console.log();
 
   let newFiles      = [];
