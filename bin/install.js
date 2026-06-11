@@ -18,7 +18,7 @@ const c = {
 };
 
 const REPO_ROOT  = path.resolve(__dirname, '..');
-const CLAUDE_DIR = path.join(os.homedir(), '.claude');
+const CLAUDE_DIR = path.join(os.homedir(), '.claude-alex');
 const ENV_FILE   = path.join(CLAUDE_DIR, '.env');
 const SETTINGS   = path.join(CLAUDE_DIR, 'settings.json');
 
