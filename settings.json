@@ -17,6 +17,7 @@
       "mcp__tts__tts_status"
     ]
   },
+  "model": "opus",
   "hooks": {
     "PreToolUse": [
       {
@@ -102,6 +103,7 @@
     "superpowers@claude-plugins-official": true
   },
   "skipDangerousModePermissionPrompt": true,
+  "agentPushNotifEnabled": true,
   "preferences": {
     "tmuxSplitPanes": true
   }

@@ -1,0 +1,18 @@
+{
+  "name": "session-ce401fee",
+  "createdAt": 1788289668985,
+  "leadAgentId": "team-lead@session-ce401fee",
+  "leadSessionId": "ce401fee-8e1c-466a-a932-3876fcedc121",
+  "members": [
+    {
+      "agentId": "team-lead@session-ce401fee",
+      "name": "team-lead",
+      "agentType": "team-lead",
+      "joinedAt": 1788289668985,
+      "tmuxPaneId": "leader",
+      "cwd": "/home/metameg/Work/semantic-dfts",
+      "subscriptions": [],
+      "backendType": "in-process"
+    }
+  ]
+}

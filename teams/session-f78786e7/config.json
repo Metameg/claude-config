@@ -1,0 +1,18 @@
+{
+  "name": "session-f78786e7",
+  "createdAt": 1786982757803,
+  "leadAgentId": "team-lead@session-f78786e7",
+  "leadSessionId": "f78786e7-a0c3-48ff-a1b1-1b2af65e24db",
+  "members": [
+    {
+      "agentId": "team-lead@session-f78786e7",
+      "name": "team-lead",
+      "agentType": "team-lead",
+      "joinedAt": 1786982757803,
+      "tmuxPaneId": "leader",
+      "cwd": "/home/metameg/Work/AIRSS",
+      "subscriptions": [],
+      "backendType": "in-process"
+    }
+  ]
+}

@@ -62,3 +62,4 @@ skills/skill-builder/.claude-flow/
 
 # Machine-local settings overrides
 settings.local.json
+.credentials.json*

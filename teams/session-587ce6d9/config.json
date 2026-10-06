@@ -1,0 +1,18 @@
+{
+  "name": "session-587ce6d9",
+  "createdAt": 1788645303307,
+  "leadAgentId": "team-lead@session-587ce6d9",
+  "leadSessionId": "587ce6d9-c0ee-481a-868f-7cc08ee2e285",
+  "members": [
+    {
+      "agentId": "team-lead@session-587ce6d9",
+      "name": "team-lead",
+      "agentType": "team-lead",
+      "joinedAt": 1788645303307,
+      "tmuxPaneId": "leader",
+      "cwd": "/home/metameg/Work/SongForge",
+      "subscriptions": [],
+      "backendType": "in-process"
+    }
+  ]
+}
